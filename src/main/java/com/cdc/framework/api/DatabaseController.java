@@ -1,12 +1,10 @@
 package com.cdc.framework.api;
 
-import com.cdc.framework.domain.RegisteredDatabaseEntity;
-import com.cdc.framework.model.DatabaseRegistrationRequest;
-import com.cdc.framework.model.DiscoveredTable;
-import com.cdc.framework.service.CdcReadinessService;
-import com.cdc.framework.service.ConnectionTestService;
-import com.cdc.framework.service.DatabaseService;
-import com.cdc.framework.service.MetadataDiscoveryService;
+import com.cdc.framework.dto.CdcChangeEvent;
+import com.cdc.framework.dto.DatabaseRegistrationRequest;
+import com.cdc.framework.dto.DiscoveredTable;
+import com.cdc.framework.entity.RegisteredDatabaseEntity;
+import com.cdc.framework.service.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -33,12 +31,12 @@ public class DatabaseController {
 
     private static final Logger log = LoggerFactory.getLogger(DatabaseController.class);
 
-    private final DatabaseService registry;
+    private final DatabaseRegistryService registry;
     private final ConnectionTestService connectionTest;
     private final CdcReadinessService readiness;
     private final MetadataDiscoveryService discovery;
 
-    public DatabaseController(DatabaseService registry, ConnectionTestService connectionTest,
+    public DatabaseController(DatabaseRegistryService registry, ConnectionTestService connectionTest,
                              CdcReadinessService readiness, MetadataDiscoveryService discovery) {
         this.registry = registry;
         this.connectionTest = connectionTest;

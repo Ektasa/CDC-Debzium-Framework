@@ -2,8 +2,7 @@ package com.cdc.framework.api;
 
 import com.cdc.framework.entity.CdcPipeLineConfig;
 import com.cdc.framework.entity.TrackedTableEntity;
-import com.cdc.framework.model.CreatePipelineRequest;
-import com.cdc.framework.model.TableSelectionRequest;
+import com.cdc.framework.dto.CreatePipelineRequest;
 import com.cdc.framework.service.EmbeddedDebeziumEngineService;
 import com.cdc.framework.service.PipelineService;
 import com.cdc.framework.service.TableSelectionService;
@@ -62,7 +61,7 @@ public class PipelineController {
             @ApiResponse(responseCode = "404", description = "Data pipeline not found for the specified database connection")
     })
     public List<CdcPipeLineConfig> all() {
-        List<CdcPipeLineConfig> pipelines = pipelineService.alll();
+        List<CdcPipeLineConfig> pipelines = pipelineService.all();
         log.info("Retrieved {} data pipelines", pipelines.size());
         return pipelines;
     }
@@ -90,7 +89,7 @@ public class PipelineController {
     public List<TrackedTableEntity> selectTables(
             @Parameter(description = "The ID of the data pipeline to update", example = "pipeline-123", required = true)
             @PathVariable("id") String id,
-            @Valid @RequestBody TableSelectionRequest request) {
+            @Valid @RequestBody CreatePipelineRequest.TableSelectionRequest request) {
         log.info("Updating selected tables for data pipeline ID: {}", id);
         return tableSelectionService.replaceSelection(id, request.getTableNames());
     }
