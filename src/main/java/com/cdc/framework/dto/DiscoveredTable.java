@@ -1,4 +1,4 @@
-package com.cdc.framework.model;
+package com.cdc.framework.dto;
 
 public class DiscoveredTable {
     private String schemaName;
