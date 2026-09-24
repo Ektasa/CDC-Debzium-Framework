@@ -1,15 +1,29 @@
 package com.cdc.framework.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "audit_log")
 public class AuditLogEntity extends BaseAuditableEntity {
+    @Column(name = "audit_id")
     private String auditId;
+    @Column(name = "action")
     private String action;
+    @Column(name = "resource_type")
     private String resourceType;
+    @Column(name = "resource_id")
     private String resourceId;
+    @Column(name = "details")
     private String details;
+    @Column(name = "actor")
     private String actor;
+    @Column(name = "correlation_id")
     private String correlationId;
+    @Column(name = "event_time")
     private LocalDateTime eventTime;
 
     public AuditLogEntity() {
