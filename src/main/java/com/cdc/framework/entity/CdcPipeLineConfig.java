@@ -1,16 +1,31 @@
 package com.cdc.framework.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "cdc_pipeline_config")
 public class CdcPipeLineConfig extends BaseAuditableEntity {
+    @Column(name = "database_id")
     private String databaseId;
+    @Column(name = "pipeline_name")
     private String pipelineName;
+    @Column(name = "connector_name")
     private String connectorName;
+    @Column(name = "topic_prefix")
     private String topicPrefix;
+    @Column(name = "table_whitelist")
     private String tableWhitelist;
+    @Column(name = "enabled")
     private boolean enabled;
+    @Column(name = "status")
     private String status;
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     public CdcPipeLineConfig() {

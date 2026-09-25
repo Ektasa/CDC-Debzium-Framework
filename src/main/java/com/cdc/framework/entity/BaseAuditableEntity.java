@@ -1,13 +1,25 @@
 package com.cdc.framework.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+
 import java.time.LocalDateTime;
 
+@MappedSuperclass
 public class BaseAuditableEntity {
+    @Id
+    @Column(name = "id")
     private String id;
+    @Column(name = "created_by")
     private String createdBy;
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+    @Column(name = "updated_by")
     private String updatedBy;
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+    @Column(name = "status")
     private String status;
 
     public BaseAuditableEntity() {
