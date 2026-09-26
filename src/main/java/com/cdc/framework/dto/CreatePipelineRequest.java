@@ -1,4 +1,6 @@
-package com.cdc.framework.model;
+package com.cdc.framework.dto;
+
+import java.util.List;
 
 public class CreatePipelineRequest {
     private String databaseId;
@@ -57,5 +59,24 @@ public class CreatePipelineRequest {
 
     public void setTableWhitelist(String tableWhitelist) {
         this.tableWhitelist = tableWhitelist;
+    }
+
+    public static class TableSelectionRequest {
+        private List<String> tableNames;
+
+        public TableSelectionRequest() {
+        }
+
+        public TableSelectionRequest(List<String> tableNames) {
+            this.tableNames = tableNames;
+        }
+
+        public List<String> getTableNames() {
+            return tableNames;
+        }
+
+        public void setTableNames(List<String> tableNames) {
+            this.tableNames = tableNames;
+        }
     }
 }
