@@ -1,5 +1,7 @@
 package com.cdc.framework.repository;
 
-public class CdcPipelineConfigRepository extends JpaRepository<CdcPipelineConfig, Long> {
-    
+import com.cdc.framework.entity.CdcPipeLineConfig;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CdcPipelineConfigRepository extends JpaRepository<CdcPipeLineConfig, String> {
 }
