@@ -15,4 +15,5 @@ public interface DatabaseRegistryService   {
     List<RegisteredDatabaseEntity> all();
     RegisteredDatabaseEntity get(String id);
 
+    RegisteredDatabaseEntity getById(String id);
 }
