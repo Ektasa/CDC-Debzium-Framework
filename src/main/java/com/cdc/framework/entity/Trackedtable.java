@@ -1,7 +1,7 @@
 package com.cdc.framework.entity;
 
-public class trackedtable extends TrackedTableEntity {
-    public trackedtable() {
+public class Trackedtable extends TrackedTableEntity {
+    public Trackedtable() {
         super();
     }
 }

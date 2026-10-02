@@ -1,6 +1,6 @@
 package com.cdc.framework.service;
 
-import com.cdc.framework.model.DiscoveredTable;
+import com.cdc.framework.dto.DiscoveredTable;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.cdc.framework.service;
 
 import com.cdc.framework.entity.CdcPipeLineConfig;
-import com.cdc.framework.model.CreatePipelineRequest;
+import com.cdc.framework.dto.CreatePipelineRequest;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ public class PipelineService {
         return ResponseEntity.ok("Pipeline created successfully");
     }
 
-    public List<CdcPipeLineConfig> alll() {
+    public List<CdcPipeLineConfig> all() {
         return new ArrayList<>();
     }
 
