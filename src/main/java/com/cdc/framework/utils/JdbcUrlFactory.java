@@ -1,28 +1,26 @@
 package com.cdc.framework.utils;
 
-import com.cdc.framework.domain.RegisteredDatabaseEntity;
-
-import static com.cdc.framework.utils.DatabaseVendor.*;
+import com.cdc.framework.entity.RegisteredDatabaseEntity;
 
 public class JdbcUrlFactory {
 
     public String jdbcUrl(RegisteredDatabaseEntity db) {
         String jdbcUrl = null;
-        switch (db.getDbType()) {
+        switch (db.getDatabaseVendor()) {
             case MYSQL:
-                jdbcUrl = "jdbc:mysql://" + db.getHost() + ":" + db.getPort() + "/" + db.getDbName();
+                jdbcUrl = "jdbc:mysql://" + db.getHost() + ":" + db.getPort() + "/" + db.getDatabaseName();
                 break;
             case POSTGRESQL:
-                jdbcUrl = "jdbc:postgresql://" + db.getHost() + ":" + db.getPort() + "/" + db.getDbName();
+                jdbcUrl = "jdbc:postgresql://" + db.getHost() + ":" + db.getPort() + "/" + db.getDatabaseName();
                 break;
             case ORACLE:
-                jdbcUrl = "jdbc:oracle:thin:@" + db.getHost() + ":" + db.getPort() + ":" + db.getDbName();
+                jdbcUrl = "jdbc:oracle:thin:@" + db.getHost() + ":" + db.getPort() + ":" + db.getDatabaseName();
                 break;
             case SQLSERVER:
-                jdbcUrl = "jdbc:sqlserver://" + db.getHost() + ":" + db.getPort() + ";databaseName=" + db.getDbName();
+                jdbcUrl = "jdbc:sqlserver://" + db.getHost() + ":" + db.getPort() + ";databaseName=" + db.getDatabaseName();
                 break;
             default:
-                throw new IllegalArgumentException("Unsupported database type: " + db.getDbType());
+                throw new IllegalArgumentException("Unsupported database type: " + db.getDatabaseVendor());
         }
         return jdbcUrl;
     }

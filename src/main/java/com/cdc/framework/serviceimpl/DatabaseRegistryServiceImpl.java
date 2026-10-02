@@ -1,26 +1,26 @@
 package com.cdc.framework.serviceimpl;
 
-public class DatabaseRegistryServiceImpl implements DatabaseRegistryService {
-    // Implement the methods defined in the DatabaseRegistryService interface
-    private final DatabaseRegistryRepository databaseRegistryRepository;
-    private final SimpleService secretService;
-    private final AuditService auditService;
+import com.cdc.framework.dto.DatabaseRegistrationRequest;
+import com.cdc.framework.entity.RegisteredDatabaseEntity;
+import com.cdc.framework.service.DatabaseRegistryService;
+import org.springframework.stereotype.Service;
+import java.util.List;
 
-    public DatabaseRegistryServiceImpl(DatabaseRegistryRepository databaseRegistryRepository, SimpleService secretService, AuditService auditService) {
-        this.databaseRegistryRepository = databaseRegistryRepository;
-        this.secretService = secretService;
-        this.auditService = auditService;
+@Service
+public class DatabaseRegistryServiceImpl implements DatabaseRegistryService {
+
+    @Override
+    public RegisteredDatabaseEntity register(DatabaseRegistrationRequest req) {
+        return null;
     }
 
     @Override
-    public void register(DatabaseRegistry databaseRegistry) {
-        RegisteredDatabaseEntity db=new RegisteredDatabaseEntity();
-        db.setName(databaseRegistry.getName());
-        db.setType(databaseRegistry.getType());
-        db.setConnectionString(databaseRegistry.getConnectionString());
-        db.setUsername(databaseRegistry.getUsername());
-        db.setEncryptedPassword(secretService.encrypt(databaseRegistry.getPassword()));
-        databaseRegistryRepository.save(db);
-        auditService.log("Registered new database: " + db.getName());
+    public List<RegisteredDatabaseEntity> getAll() {
+        return List.of();
+    }
+
+    @Override
+    public RegisteredDatabaseEntity getById(String id) {
+        return null;
     }
 }

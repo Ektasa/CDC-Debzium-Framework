@@ -30,7 +30,7 @@ import jakarta.validation.constraints.NotNull;
         }
 
         public String getUsername() {
-            return name;
+            return username;
         }
 
         public String getPassword() {
