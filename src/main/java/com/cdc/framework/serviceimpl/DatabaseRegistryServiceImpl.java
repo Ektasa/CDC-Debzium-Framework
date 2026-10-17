@@ -55,21 +55,21 @@ public class DatabaseRegistryServiceImpl implements DatabaseRegistryService {
         return repository.findAll();
     }
 
+//    @Override
+//    public RegisteredDatabaseEntity getById(String id) {
+//      return repository.findById(id).orElse(null);
+//        RegisteredDatabaseEntity entity = repository.getReferenceById(id);
+//        System.out.println(entity.getClass());
+//        return entity;
+//    }
     @Override
     public RegisteredDatabaseEntity getById(String id) {
         return repository.findById(id).orElse(null);
     }
 
+
 }
 
 
-//    @Override
-//    public List<RegisteredDatabaseEntity> getAll() {
-//        return List.of();
-//    }
-//
-//    @Override
-//    public RegisteredDatabaseEntity getById(String id) {
-//        return null;
-//    }
-//}
+
+
