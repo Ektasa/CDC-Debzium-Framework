@@ -1,7 +1,6 @@
+
 Here is a comprehensive and well-structured `README.md` template tailored for your **CDC-Debezium-Framework** repository. You can copy and paste this directly into the file editor you currently have open on GitHub.
-
 ---
-
 # CDC Debezium Framework
 
 A robust, scalable, and configurable Change Data Capture (CDC) framework built using **Apache Kafka** and **Debezium** to stream real-time database changes.
